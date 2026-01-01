@@ -11,6 +11,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import numpy as np
+import os
 
 # Configuração da página
 st.set_page_config(
@@ -42,7 +43,21 @@ st.markdown("""
 
 @st.cache_data
 def load_data():
-    """Carrega e processa os dados de vendas."""
+    """Carrega e processa os dados de vendas.
+
+    Se existir um arquivo CSV em `data/vendas.csv` ele será usado. Caso contrário
+    será gerado um dataset de exemplo (como antes).
+    """
+    csv_path = os.path.join('data', 'vendas.csv')
+
+    if os.path.exists(csv_path):
+        df = pd.read_csv(csv_path, parse_dates=['data_venda'])
+        # calcula receita se não existir
+        if 'receita' not in df.columns and 'quantidade' in df.columns and 'preco_unitario' in df.columns:
+            df['receita'] = df['quantidade'] * df['preco_unitario']
+        df['data_venda'] = pd.to_datetime(df['data_venda'])
+        return df
+
     # Gera dados de exemplo (substitua pelo seu CSV real)
     np.random.seed(42)
     dates = pd.date_range(start='2023-01-01', end='2024-12-31', freq='D')

@@ -49,6 +49,30 @@ dashboard-vendas/
 
 ## 🚀 Como Executar
 
+## 📌 Deploy e Dados
+
+- App pública (Streamlit): vá em sua conta no Streamlit Cloud para ver o URL atual do deploy.
+- Para usar seus próprios dados, coloque um arquivo CSV em `data/vendas.csv` com as colunas mínimas:
+	- `data_venda` (formato ISO, e.g. 2024-01-05)
+	- `id_produto`
+	- `categoria`
+	- `quantidade`
+	- `preco_unitario`
+	- `regiao`
+	- `id_cliente`
+
+O `app.py` irá carregar automaticamente `data/vendas.csv` se o arquivo existir; caso contrário, usará dados de exemplo gerados aleatoriamente.
+
+Para rodar localmente:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+
 ### Pré-requisitos
 ```bash
 Python 3.8+
