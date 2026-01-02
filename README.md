@@ -37,12 +37,50 @@ Dashboard web interativo para análise em tempo real de métricas de vendas, per
 
 ```
 dashboard-vendas/
+# 📊 Dashboard Interativo de Vendas
+
+## 🎯 Objetivo
+
+Dashboard web interativo para análise em tempo real de métricas de vendas, permitindo filtros dinâmicos e visualizações interativas.
+
+## 🚀 Tecnologias Utilizadas
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+
+## ✨ Funcionalidades
+
+### 📈 Visualizações Interativas
+- Gráficos de linha para tendências temporais
+- Gráficos de barras para comparações
+- Mapas de calor para análise de padrões
+- Gráficos de pizza para distribuições
+- Métricas em cards (KPIs)
+
+### 🔍 Filtros Dinâmicos
+- Filtro por período (data início e fim)
+- Filtro por região
+- Filtro por categoria de produto
+- Filtro por faixa de valor
+
+### 📊 Métricas Principais
+- Receita Total
+- Número de Vendas
+- Ticket Médio
+- Clientes Únicos
+- Taxa de Crescimento
+
+## 📁 Estrutura do Projeto
+
+```
+dashboard-vendas/
 ├── app.py
 ├── data/
 │   └── vendas.csv
-├── utils/
-│   ├── data_loader.py
-│   └── metrics.py
+├── screenshots/
+│   └── (adicione imagens aqui para o README)
 ├── requirements.txt
 └── README.md
 ```
@@ -53,13 +91,13 @@ dashboard-vendas/
 
 - App pública (Streamlit): vá em sua conta no Streamlit Cloud para ver o URL atual do deploy.
 - Para usar seus próprios dados, coloque um arquivo CSV em `data/vendas.csv` com as colunas mínimas:
-	- `data_venda` (formato ISO, e.g. 2024-01-05)
-	- `id_produto`
-	- `categoria`
-	- `quantidade`
-	- `preco_unitario`
-	- `regiao`
-	- `id_cliente`
+  - `data_venda` (formato ISO, e.g. 2024-01-05)
+  - `id_produto`
+  - `categoria`
+  - `quantidade`
+  - `preco_unitario`
+  - `regiao`
+  - `id_cliente`
 
 O `app.py` irá carregar automaticamente `data/vendas.csv` se o arquivo existir; caso contrário, usará dados de exemplo gerados aleatoriamente.
 
@@ -67,14 +105,13 @@ Para rodar localmente:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\activate
+.\\.venv\\Scripts\\activate
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-
 ### Pré-requisitos
-```bash
+```
 Python 3.8+
 ```
 
@@ -97,6 +134,7 @@ streamlit run app.py
 ```
 
 4. Acesse no navegador:
+
 ```
 http://localhost:8501
 ```
@@ -104,22 +142,29 @@ http://localhost:8501
 ## 📦 Dependências
 
 ```
-streamlit==1.28.0
-pandas==2.0.0
-plotly==5.17.0
-numpy==1.24.0
+streamlit>=1.28.0
+pandas>=2.0.0
+plotly>=5.17.0
+numpy>=1.24.0
 ```
 
 ## 📸 Screenshots
 
+> Se as imagens não aparecerem abaixo, coloque arquivos PNG/JPG na pasta `screenshots/` com os nomes indicados.
+
 ### Dashboard Principal
-![Dashboard](images/dashboard_main.png)
+
+![Dashboard Principal](screenshots/dashboard_main.png)
 
 ### Análise por Região
-![Região](images/dashboard_region.png)
+
+![Análise Regional](screenshots/dashboard_region.png)
 
 ### Tendências Temporais
-![Tendências](images/dashboard_trends.png)
+
+![Tendências Temporais](screenshots/dashboard_trends.png)
+
+---
 
 ## 🎓 Aprendizados
 
@@ -145,7 +190,7 @@ Este projeto demonstra:
 - [ ] Implementar autenticação de usuários
 - [ ] Adicionar previsões com Machine Learning
 - [ ] Integrar com banco de dados em tempo real
-- [ ] Deploy em nuvem (Streamlit Cloud/Heroku)
+- [ ] Melhorar screenshots com imagens atualizadas
 
 ## 🚀 Deploy
 
